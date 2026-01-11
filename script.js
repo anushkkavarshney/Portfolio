@@ -207,7 +207,59 @@ gsap.registerPlugin(ScrollTrigger);
       }
     });
   });
+gsap.registerPlugin(ScrollTrigger);
 
+// // Loader simulation
+// setTimeout(() => {
+//   document.getElementById("loader").style.display = "none";
+//   document.getElementById("main").classList.remove("hidden");
+//   ScrollTrigger.refresh();
+// }, 2500);
+
+// Footer time
+function updateTime() {
+  document.getElementById("time").innerText =
+    new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+updateTime();
+setInterval(updateTime, 60000);
+
+// // Example scroll animation
+// gsap.from("#about h2", {
+//   scrollTrigger: "#about",
+//   y: 100,
+//   opacity: 0,
+//   duration: 1.2,
+//   ease: "power3.out"
+// });
+// gsap.from(".toolset span", {
+//   scrollTrigger: "#about",
+//   y: 20,
+//   opacity: 0,
+//   stagger: 0.05,
+//   duration: 0.8,
+//   ease: "power3.out"
+// });
+
+// gsap.registerPlugin(ScrollTrigger);
+
+// gsap.utils.toArray(".reveal").forEach(el => {
+//   gsap.fromTo(
+//     el,
+//     { opacity: 0, y: 60 },
+//     {
+//       opacity: 1,
+//       y: 0,
+//       duration: 1,
+//       ease: "power3.out",
+//       scrollTrigger: {
+//         trigger: el,
+//         start: "top 85%",
+//         toggleActions: "play none none reverse"
+//       }
+//     }
+//   );
+// });
 
 
 window.addEventListener("load", () => {
@@ -221,3 +273,4 @@ window.addEventListener("load", () => {
   cardShow();
   // scrollTrigger();
 });
+

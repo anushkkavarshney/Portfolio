@@ -7,6 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css" class="css">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Great+Vibes&display=swap"
+        rel="stylesheet">
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Great+Vibes&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.css"
@@ -191,6 +199,16 @@
             <div id="projects">
 
                 <div class="proj" id="proj1">
+                    <div class="proj-arrow">
+                        <svg class="o-ui-arrow" width="64" height="64" viewBox="0 0 64 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.10162 3.10156L62.9999 62.9999" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                            <path d="M63 1.00001L63 63L0.999989 63" stroke-linecap="round" stroke-linejoin="round">
+                            </path>
+                        </svg>
+                    </div>
+
                     <img data-color="af7878" data-index="0" data-scroll data-scroll-speed="-1.5"
                         src="https://media.licdn.com/dms/image/v2/D4E10AQGLExC98Jf1TQ/image-shrink_800/image-shrink_800/0/1723246519484?e=2147483647&v=beta&t=VW_WU2_bw2MnM6nF0L23ad5ilI9DXWU-q-2PspgSevU">
 
@@ -207,7 +225,7 @@
                     <div>
                         <div class="crow">
                             <div class="ccircle"></div>
-                            <div class="ccapsule">ZenGuide</div>
+                            <div class="ccapsule">MedRepSumm</div>
                         </div>
                         <div id="elem">
                             <img src="assets/z-1.jpg">
@@ -220,7 +238,7 @@
                     <div>
                         <div class="crow">
                             <div class="ccircle"></div>
-                            <div class="ccapsule">College Connect</div>
+                            <div class="ccapsule">iClaim</div>
                         </div>
                         <div id="elem">
                             <img src="assets/ig-1.jpg">
@@ -233,7 +251,7 @@
                     <div>
                         <div class="crow">
                             <div class="ccircle"></div>
-                            <div class="ccapsule">Portfolio-2024</div>
+                            <div class="ccapsule">MansikSeva</div>
                         </div>
                         <div id="elem">
                             <img src="assets/p-1.jpg">
@@ -252,7 +270,82 @@
             </div>
             <div id="bg-img"></div>
         </div>
-        <div id="honors"></div>
+        <!-- About -->
+        <!-- <section id="about" class="bg-[#fcfaf8] py-24 px-[5vw]">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                <div class="about-grid">
+
+                    <div class="about-left">
+                        <h2 class="about-heading reveal">
+                            Hybrid <br />
+                            Thinking.
+                        </h2>
+
+                        <p>
+                            I believe that great products are born at the intersection of
+                            aesthetic brilliance and technical excellence.
+                        </p>
+
+                        <p>
+                            Based in India, I collaborate with forward-thinking brands and founders.
+                        </p>
+                    </div>
+
+
+                    <div class="about-right">
+                        <div class="about-block">
+                            <h4>MY TOOLSET</h4>
+
+                            <div class="toolset">
+                                <span>React.js</span>
+                                <span>Next.js</span>
+                                <span>GSAP</span>
+                                <span>Framer Motion</span>
+                                <span>Tailwind CSS</span>
+                                <span>TypeScript</span>
+                                <span>Node.js</span>
+                                <span>Figma</span>
+                                <span>Webflow</span>
+                            </div>
+                        </div>
+
+                    </div> -->
+        <!-- </section> -->
+
+        <!-- Footer -->
+        <footer id="footer" class="bg-[#141313] text-white pt-32 pb-12 px-[5vw] rounded-t-[50px] md:rounded-t-[100px]">
+
+            <div class="flex flex-col md:flex-row justify-between gap-12 mb-32">
+
+                <div>
+                    <h5 class="text-[#7be589] uppercase tracking-widest text-sm font-bold">Have an idea?</h5>
+                    <h2 class="text-[12vw] md:text-[8vw] font-medium leading-[0.8] tracking-tighter">
+                        Let's Ta<span class="font-cursive text-[14vw] md:text-[10vw]">l</span>k.
+                    </h2>
+                </div>
+
+                <div class="text-right">
+                    <p class="opacity-40 text-sm uppercase tracking-widest">Connect with me</p>
+                    <div class="flex flex-col items-end gap-2 mt-4">
+                        <a href="#" class="social">LinkedIn</a>
+                        <a href="#" class="social">Github</a>
+                        <a href="#" class="social">Twitter</a>
+                        <a href="#" class="social">Dribbble</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center border-t border-white/10 pt-8 text-xs">
+                <div>
+                    <span class="opacity-40 uppercase block">Based in</span>
+                    INDIA (GMT +5:30)
+                </div>
+                <div id="time"></div>
+            </div>
+
+        </footer>
+
+        <!-- <div id="honors"></div> -->
 
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
