@@ -158,10 +158,46 @@ function animateHomepage() {
 }
 
 function locoInitialize() {
-  const scroll = new LocomotiveScroll({
-    el: document.querySelector('#main'),
+  const scrollContainer = document.querySelector("#main");
+
+  const locoScroll = new LocomotiveScroll({
+    el: scrollContainer,
     smooth: true
   });
+
+  ScrollTrigger.scrollerProxy(scrollContainer, {
+    scrollTop(value) {
+      return arguments.length
+        ? locoScroll.scrollTo(value, 0, 0)
+        : locoScroll.scroll.instance.scroll.y;
+    },
+    getBoundingClientRect() {
+      return {
+        top: 0,
+        left: 0,
+        width: window.innerWidth,
+        height: window.innerHeight
+      };
+    },
+    pinType: scrollContainer.style.transform ? "transform" : "fixed"
+  });
+
+  locoScroll.on("scroll", ScrollTrigger.update);
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+  ScrollTrigger.refresh();
+  gsap.to(t.selector, {
+  rotate: t.to,
+  scrollTrigger: {
+    trigger: t.selector,
+    scroller: "#main",   // 🔥 REQUIRED
+    scrub: true,
+    start: "top 90%",
+    end: "top 20%"
+    // markers: true
+  }
+});
+
 }
 
 function cardShow() {
