@@ -1,0 +1,251 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background-color: #fcfaf8;
+  --font-color: #383838;
+  --main-color: #7be589;
+  --accent-color: #7be589;
+  --dark-black: #141313;
+  --max-width: 1280px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--background-color);
+  color: var(--font-color);
+}
+
+body {
+  overflow-x: hidden;
+  background: var(--background-color);
+  color: var(--font-color);
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #141313;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+  border: 2px solid #141313;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #7be589;
+}
+
+/* Subtle Creative Film Grain Effect */
+.bg-grain {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-grain-dark {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Text stroke helpers */
+.stroke-text {
+  -webkit-text-stroke: 1.5px rgba(20, 19, 19, 0.85);
+  color: transparent;
+}
+
+.stroke-text-white {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+  color: transparent;
+}
+
+/* Cursive font */
+.font-cursive {
+  font-family: 'Great Vibes', cursive;
+}
+
+/* Engineer SVG handwriting reveal */
+@keyframes engineerWrite {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+.engineer-write-rect {
+  transform-box: fill-box;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.engineer-write-rect.is-writing {
+  animation: engineerWrite 2.5s cubic-bezier(0.45, 0.05, 0.25, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes flourishDraw {
+  0% {
+    stroke-dasharray: 350;
+    stroke-dashoffset: 350;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flourish-stroke {
+  stroke-dasharray: 350;
+  stroke-dashoffset: 350;
+}
+
+.flourish-stroke.is-writing {
+  animation: flourishDraw 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 2.8s;
+}
+
+@keyframes flourishDotIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.flourish-dot {
+  opacity: 0;
+}
+
+.flourish-dot.is-writing {
+  animation: flourishDotIn 0.4s ease-out 4.1s forwards;
+}
+
+/* Floating Tab Levitation Keyframes */
+@keyframes floatSlow1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(0.5deg);
+  }
+}
+
+@keyframes floatSlow2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-0.5deg);
+  }
+}
+
+@keyframes floatSlow3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.8deg);
+  }
+}
+
+.floating-tab-1 {
+  animation: floatSlow1 7s ease-in-out infinite;
+}
+
+.floating-tab-2 {
+  animation: floatSlow2 8.5s ease-in-out infinite;
+  animation-delay: -2s;
+}
+
+.floating-tab-3 {
+  animation: floatSlow3 6.5s ease-in-out infinite;
+  animation-delay: -4s;
+}
+
+/* Floating Water Droplets */
+@keyframes dropletRise {
+  0% {
+    transform: translateY(12vh) translateX(0) scale(1);
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--droplet-opacity, 0.5);
+  }
+  50% {
+    transform: translateY(-46vh) translateX(var(--droplet-sway, 22px)) scale(1.06);
+  }
+  88% {
+    opacity: var(--droplet-opacity, 0.5);
+  }
+  100% {
+    transform: translateY(-100vh) translateX(calc(var(--droplet-sway, 22px) * -1)) scale(0.92);
+    opacity: 0;
+  }
+}
+
+.droplet {
+  position: absolute;
+  bottom: -70px;
+  border-radius: 9999px;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 26%, var(--droplet-specular, rgba(255, 255, 255, 0.9)), transparent 34%),
+    radial-gradient(circle at 52% 58%, var(--droplet-tint, rgba(123, 229, 137, 0.22)), transparent 72%);
+  box-shadow:
+    inset 0 0 14px var(--droplet-rim, rgba(123, 229, 137, 0.35)),
+    inset -4px -6px 16px var(--droplet-shade, rgba(20, 19, 19, 0.28)),
+    0 4px 22px var(--droplet-glow, rgba(123, 229, 137, 0.12));
+  animation: dropletRise linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Accordion gallery (hover expanding panels) */
+.expandable-panel {
+  transition: flex-grow 0.75s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, filter 0.75s ease;
+}
+.expandable-panel__body {
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+@media (max-width: 767px) {
+  .expandable-panel {
+    transition: flex-grow 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease, filter 0.6s ease;
+  }
+}
+
+/* Image strip that fades out toward its bottom edge (project card backdrops) */
+.mask-fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 15%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 15%, transparent 100%);
+}
+
+/* Hide scrollbars for drag surfaces */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Soft text helper for lighter typography */
+.soft-text {
+  font-weight: 500;
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glass-panel-dark {
+  background: rgba(20, 19, 19, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
